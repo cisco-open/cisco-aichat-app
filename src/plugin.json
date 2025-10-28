@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "app",
+  "name": "AI Chat Assistant",
+  "id": "grafana-aichat-app",
+  "info": {
+    "keywords": [
+      "ai",
+      "chat",
+      "llm",
+      "assistant",
+      "mcp"
+    ],
+    "description": "AI Chat Assistant app that integrates with Grafana's LLM service and MCP tools for intelligent monitoring assistance",
+    "author": {
+      "name": "Cisco Systems, Inc."
+    },
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "includes": [
+    {
+      "type": "page",
+      "name": "Chat Assistant",
+      "path": "/a/%PLUGIN_ID%/chat",
+      "addToNav": true,
+      "defaultNav": true,
+      "role": "Editor"
+    },
+    {
+      "type": "page",
+      "icon": "cog",
+      "name": "Configuration",
+      "path": "/plugins/%PLUGIN_ID%",
+      "role": "Admin",
+      "addToNav": true
+    }
+  ],
+  "dependencies": {
+    "grafanaDependency": ">=10.4.0",
+    "plugins": [
+      {
+        "type": "app",
+        "id": "grafana-llm-app"
+      }
+    ]
+  },
+  "executable": "gpx_grafana-aichat-app",
+  "backend": true
+}

@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+.yarn/
+.pnp.*
+
+# Build outputs
+dist/
+artifacts/
+work/
+ci/
+
+# Test outputs
+coverage/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# Logs
+logs/
+*.log
+
+# Lock files (heavy and auto-generated)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Cache directories
+.cache/
+.eslintcache
+.npm/
+.yarn/cache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.js.map
+*.css.map
+
+# Large media files (if any)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+
+# Documentation builds (if applicable)
+docs/build/
+docs/.docusaurus/
+
+# Environment files (may contain secrets)
+.env
+.env.local
+.env.*.local
+
+# Archive files
+*.zip

@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Build backend (multi-platform)
+        run: |
+          declare -a PLATFORMS=("linux/amd64" "linux/arm64" "linux/arm" "darwin/amd64" "darwin/arm64" "windows/amd64")
+          for platform in "${PLATFORMS[@]}"; do
+            GOOS="${platform%/*}"
+            GOARCH="${platform#*/}"
+            output="dist/gpx_grafana-aichat-app_${GOOS}_${GOARCH}"
+            if [ "$GOOS" = "windows" ]; then
+              output="${output}.exe"
+            fi
+            echo "Building ${GOOS}/${GOARCH}..."
+            GOOS=$GOOS GOARCH=$GOARCH go build -ldflags="-w -s" -o "$output" ./pkg
+          done
+
+      - name: Sign plugin
+        run: |
+          if [ -n "${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}" ]; then
+            echo "Signing plugin with Grafana access policy token..."
+            npx --yes @grafana/sign-plugin@latest
+          else
+            echo "::warning::GRAFANA_ACCESS_POLICY_TOKEN not configured. Skipping plugin signing."
+            echo "To enable signing, add GRAFANA_ACCESS_POLICY_TOKEN to repository secrets."
+            echo "See: https://grafana.com/developers/plugin-tools/publish-a-plugin/sign-a-plugin"
+          fi
+        env:
+          GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+
+      - name: Package plugin
+        run: |
+          PLUGIN_ID="grafana-aichat-app"
+          VERSION="${GITHUB_REF_NAME#v}"
+          cd dist
+          zip -r "../${PLUGIN_ID}-${VERSION}.zip" .
+          cd ..
+          echo "PLUGIN_ARCHIVE=${PLUGIN_ID}-${VERSION}.zip" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=${VERSION}" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.PLUGIN_ARCHIVE }}
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}

@@ -17,9 +17,9 @@
 apiVersion: 1
 
 apps:
-  - type: 'lma-grafanaai-app'
+  - type: 'grafana-aichat-app'
     org_id: 1
-    org_name: 'lma'
+    org_name: 'grafana'
     disabled: false
     jsonData:
       apiUrl: http://default-url.com

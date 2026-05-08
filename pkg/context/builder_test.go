@@ -87,6 +87,12 @@ func (m *mockStorage) SaveSummary(ctx context.Context, userID, sessionID string,
 func (m *mockStorage) GetOldestNonSummaryMessages(ctx context.Context, sessionID string, tokenLimit int) ([]storage.ChatMessage, error) {
 	return nil, nil
 }
+func (m *mockStorage) SearchMessages(ctx context.Context, params storage.SearchParams) ([]storage.SearchResult, error) {
+	return nil, nil
+}
+func (m *mockStorage) UpdateMessagePinned(ctx context.Context, userID, sessionID, messageID string, isPinned bool) error {
+	return nil
+}
 func (m *mockStorage) Close() error { return nil }
 
 // builderMockCounter implements tokens.TokenCounter for testing

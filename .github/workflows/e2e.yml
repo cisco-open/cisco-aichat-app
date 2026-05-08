@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Build backend
-        run: go build -o dist/gpx_grafana-aichat-app ./pkg
+        run: go build -o dist/gpx_grafana-aichat-app_linux_amd64 ./pkg
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
@@ -39,6 +39,10 @@ jobs:
       - name: Wait for Grafana
         run: |
           timeout 60 bash -c 'until curl -sf http://localhost:3000/api/health; do sleep 2; done'
+
+      - name: Grafana logs
+        if: failure()
+        run: docker compose -f docker-compose.ci.yml logs grafana
 
       - name: Run E2E tests
         run: npm run e2e

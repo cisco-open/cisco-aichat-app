@@ -56,7 +56,7 @@ jobs:
 
       - name: Grafana logs
         if: always()
-        run: docker compose -f docker-compose.ci.yml logs grafana 2>&1 | tail -200
+        run: docker compose -f docker-compose.ci.yml logs grafana 2>&1
 
       - name: Run E2E tests
         run: npm run e2e

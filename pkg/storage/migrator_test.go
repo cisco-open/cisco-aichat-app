@@ -47,10 +47,10 @@ func TestMigrator_SQLite_UpDown(t *testing.T) {
 	err = migrator.MigrateUp()
 	require.NoError(t, err)
 
-	// Check version is 2, not dirty (after migration 000002)
+	// Check version is 3, not dirty (after migration 000003)
 	version, dirty, err := migrator.Version()
 	require.NoError(t, err)
-	assert.Equal(t, uint(2), version)
+	assert.Equal(t, uint(3), version)
 	assert.False(t, dirty)
 
 	// Run Down migration

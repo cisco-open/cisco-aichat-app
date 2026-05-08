@@ -124,12 +124,13 @@ func TestHandleGetSessionTokenStats_Integration(t *testing.T) {
 	require.NoError(t, err)
 
 	// Verify stats match expected values
+	// Note: EnsureTokenCounts lazily counts msg-3 "How are you?" (12 chars) → 3 tokens
 	assert.Equal(t, sessionID, stats.SessionID)
-	assert.Equal(t, 300, stats.TotalTokens) // 100 + 200 + 0
+	assert.Equal(t, 303, stats.TotalTokens) // 100 + 200 + 3 (estimated)
 	assert.Equal(t, 10000, stats.ContextLimit)
-	assert.InDelta(t, 3.0, stats.ContextUsage, 0.01) // (300/10000)*100 = 3%
+	assert.InDelta(t, 3.03, stats.ContextUsage, 0.01) // (303/10000)*100 = 3.03%
 	assert.Equal(t, 3, stats.MessageCount)
-	assert.Equal(t, 1, stats.UncountedMsgs) // msg-3 has 0 tokens
+	assert.Equal(t, 0, stats.UncountedMsgs) // All counted after EnsureTokenCounts
 }
 
 // TestHandleGetSessionTokenStats_UsesTokenService verifies that the handler

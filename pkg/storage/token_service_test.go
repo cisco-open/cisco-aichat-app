@@ -218,12 +218,13 @@ func TestTokenService_GetSessionTokenStats(t *testing.T) {
 	stats, err := ts.GetSessionTokenStats(ctx, userID, sessionID)
 	require.NoError(t, err)
 
+	// After EnsureTokenCounts, msg-3 "Test" (4 chars) gets estimated as 1 token
 	assert.Equal(t, sessionID, stats.SessionID)
-	assert.Equal(t, 600, stats.TotalTokens)         // 100 + 200 + 0 + 300
+	assert.Equal(t, 601, stats.TotalTokens)         // 100 + 200 + 1 (estimated) + 300
 	assert.Equal(t, 10000, stats.ContextLimit)      // Test limit
-	assert.Equal(t, 6.0, stats.ContextUsage)        // (600 / 10000) * 100 = 6%
+	assert.InDelta(t, 6.01, stats.ContextUsage, 0.01) // (601 / 10000) * 100
 	assert.Equal(t, 4, stats.MessageCount)
-	assert.Equal(t, 1, stats.UncountedMsgs)         // msg-3 has 0 tokens
+	assert.Equal(t, 0, stats.UncountedMsgs)         // All counted after EnsureTokenCounts
 }
 
 func TestTokenService_GetSessionTokenStats_NotFound(t *testing.T) {

@@ -43,13 +43,13 @@ jobs:
       - name: Debug plugin directory
         run: |
           echo "=== Plugin directory listing ==="
-          docker exec grafana-aichat-ci ls -la /var/lib/grafana/plugins/cisco-aichat-app/
+          docker exec cisco-aichat-ci ls -la /var/lib/grafana/plugins/cisco-aichat-app/
           echo ""
           echo "=== plugin.json ==="
-          docker exec grafana-aichat-ci cat /var/lib/grafana/plugins/cisco-aichat-app/plugin.json | head -30
+          docker exec cisco-aichat-ci cat /var/lib/grafana/plugins/cisco-aichat-app/plugin.json | head -30
           echo ""
           echo "=== Binary file check ==="
-          docker exec grafana-aichat-ci file /var/lib/grafana/plugins/cisco-aichat-app/gpx_cisco-aichat-app_linux_amd64 || echo "Binary not found!"
+          docker exec cisco-aichat-ci file /var/lib/grafana/plugins/cisco-aichat-app/gpx_cisco-aichat-app_linux_amd64 || echo "Binary not found!"
           echo ""
           echo "=== Plugin API status ==="
           curl -sf http://localhost:3000/api/plugins/cisco-aichat-app/settings | python3 -m json.tool || echo "API call failed"

@@ -71,7 +71,7 @@ func validateDataDir(dataDir string) error {
 	// Whitelist of allowed base directories
 	allowedPrefixes := []string{
 		"/var/lib/grafana/plugins/cisco-aichat-app",
-		"/var/lib/grafana/grafana-aichat-data",
+		"/var/lib/grafana/cisco-aichat-data",
 		"/tmp/cisco-aichat-app",
 		"/data/grafana/plugins/cisco-aichat-app",
 	}
@@ -140,7 +140,7 @@ func NewApp(ctx context.Context, settings backend.AppInstanceSettings) (instance
 	// Parse JSONData to get custom data directory if provided
 	var jsonData map[string]interface{}
 	// Use Grafana's persistent data directory instead of plugin directory
-	dataDir := "/var/lib/grafana/grafana-aichat-data"
+	dataDir := "/var/lib/grafana/cisco-aichat-data"
 	if len(settings.JSONData) > 0 {
 		if err := json.Unmarshal(settings.JSONData, &jsonData); err == nil {
 			if customDir, ok := jsonData["dataDir"].(string); ok && customDir != "" {

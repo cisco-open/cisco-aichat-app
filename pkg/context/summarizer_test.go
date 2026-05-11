@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 // mockLLM implements LLMClient for testing

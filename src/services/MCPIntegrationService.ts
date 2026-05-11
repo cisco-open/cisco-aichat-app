@@ -58,7 +58,7 @@ export class MCPIntegrationService {
 
     try {
       const response = await lastValueFrom(getBackendSrv().fetch({
-        url: '/api/plugins/grafana-mcpclient-app/resources/ping',
+        url: '/api/plugins/cisco-mcpclient-app/resources/ping',
         method: 'GET',
       }));
       MCPIntegrationService.mcpClientAvailable = response.status === 200;
@@ -83,7 +83,7 @@ export class MCPIntegrationService {
       }
 
       const response = await lastValueFrom(getBackendSrv().fetch({
-        url: '/api/plugins/grafana-mcpclient-app/resources/tools',
+        url: '/api/plugins/cisco-mcpclient-app/resources/tools',
         method: 'GET',
       }));
 
@@ -194,7 +194,7 @@ export class MCPIntegrationService {
 
         try {
           const response = await lastValueFrom(getBackendSrv().fetch({
-            url: '/api/plugins/grafana-mcpclient-app/resources/tools/call',
+            url: '/api/plugins/cisco-mcpclient-app/resources/tools/call',
             method: 'POST',
             data: {
               tool_name: toolCall.function.name,

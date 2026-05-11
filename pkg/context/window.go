@@ -17,7 +17,7 @@ package context
 import (
 	"sort"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 // SlidingWindow selects messages based on recency and token budget

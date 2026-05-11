@@ -41,8 +41,8 @@ jest.mock('./ChatBackendService', () => ({
   },
 }));
 
-const STORAGE_KEY = 'grafana-aichat-history';
-const MIGRATION_FLAG_KEY = 'grafana-aichat-migrated';
+const STORAGE_KEY = 'cisco-aichat-history';
+const MIGRATION_FLAG_KEY = 'cisco-aichat-migrated';
 
 /**
  * Helper to create a test session

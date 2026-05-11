@@ -1,4 +1,4 @@
-module github.com/grafana/grafana-aichat-app
+module github.com/grafana/cisco-aichat-app
 
 go 1.25.7
 

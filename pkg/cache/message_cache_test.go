@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

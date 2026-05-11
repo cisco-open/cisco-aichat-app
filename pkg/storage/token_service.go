@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/grafana/grafana-aichat-app/pkg/tokens"
+	"github.com/grafana/cisco-aichat-app/pkg/tokens"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 )
 

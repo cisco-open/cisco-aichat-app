@@ -19,7 +19,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 	"github.com/grafana/grafana-plugin-sdk-go/backend"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 	"github.com/stretchr/testify/assert"

@@ -24,10 +24,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/cache"
-	"github.com/grafana/grafana-aichat-app/pkg/metrics"
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
-	"github.com/grafana/grafana-aichat-app/pkg/tokens"
+	"github.com/grafana/cisco-aichat-app/pkg/cache"
+	"github.com/grafana/cisco-aichat-app/pkg/metrics"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/tokens"
 	"github.com/grafana/grafana-plugin-sdk-go/backend"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/instancemgmt"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
@@ -70,10 +70,10 @@ type App struct {
 func validateDataDir(dataDir string) error {
 	// Whitelist of allowed base directories
 	allowedPrefixes := []string{
-		"/var/lib/grafana/plugins/grafana-aichat-app",
-		"/var/lib/grafana/grafana-aichat-data",
-		"/tmp/grafana-aichat-app",
-		"/data/grafana/plugins/grafana-aichat-app",
+		"/var/lib/grafana/plugins/cisco-aichat-app",
+		"/var/lib/grafana/cisco-aichat-data",
+		"/tmp/cisco-aichat-app",
+		"/data/grafana/plugins/cisco-aichat-app",
 	}
 
 	// Clean the path to resolve any .. or symlinks
@@ -140,7 +140,7 @@ func NewApp(ctx context.Context, settings backend.AppInstanceSettings) (instance
 	// Parse JSONData to get custom data directory if provided
 	var jsonData map[string]interface{}
 	// Use Grafana's persistent data directory instead of plugin directory
-	dataDir := "/var/lib/grafana/grafana-aichat-data"
+	dataDir := "/var/lib/grafana/cisco-aichat-data"
 	if len(settings.JSONData) > 0 {
 		if err := json.Unmarshal(settings.JSONData, &jsonData); err == nil {
 			if customDir, ok := jsonData["dataDir"].(string); ok && customDir != "" {

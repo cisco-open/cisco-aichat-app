@@ -20,7 +20,7 @@ import { ChatSession, UserChatHistory, ChatHistoryStorage, ChatMessage } from '.
 import { ChatBackendService } from './ChatBackendService';
 import { isAuthError, isNetworkError, isNotFoundError } from './ChatErrors';
 
-const STORAGE_KEY = 'grafana-aichat-history';
+const STORAGE_KEY = 'cisco-aichat-history';
 
 /**
  * Retry helper - attempts an async operation once more after a delay on failure
@@ -33,7 +33,7 @@ const retryOnce = async <T>(fn: () => Promise<T>, delayMs = 500): Promise<T> => 
     return await fn(); // Second attempt - let it throw if it fails
   }
 };
-const MIGRATION_FLAG_KEY = 'grafana-aichat-migrated';
+const MIGRATION_FLAG_KEY = 'cisco-aichat-migrated';
 const CACHE_DURATION = 5000; // 5 seconds cache
 
 /**

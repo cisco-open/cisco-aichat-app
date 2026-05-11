@@ -34,7 +34,7 @@ jobs:
           for platform in "${PLATFORMS[@]}"; do
             GOOS="${platform%/*}"
             GOARCH="${platform#*/}"
-            output="dist/gpx_grafana-aichat-app_${GOOS}_${GOARCH}"
+            output="dist/gpx_cisco-aichat-app_${GOOS}_${GOARCH}"
             if [ "$GOOS" = "windows" ]; then
               output="${output}.exe"
             fi
@@ -57,7 +57,7 @@ jobs:
 
       - name: Package plugin
         run: |
-          PLUGIN_ID="grafana-aichat-app"
+          PLUGIN_ID="cisco-aichat-app"
           VERSION="${GITHUB_REF_NAME#v}"
           cd dist
           zip -r "../${PLUGIN_ID}-${VERSION}.zip" .

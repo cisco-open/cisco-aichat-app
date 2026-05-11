@@ -22,7 +22,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 )
 

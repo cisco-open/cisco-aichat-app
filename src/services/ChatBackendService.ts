@@ -59,7 +59,7 @@ export interface MessagesPage {
  */
 export class ChatBackendService {
   private static instance: ChatBackendService;
-  private static readonly BASE_PATH = '/api/plugins/grafana-aichat-app/resources';
+  private static readonly BASE_PATH = '/api/plugins/cisco-aichat-app/resources';
 
   private constructor() {}
 

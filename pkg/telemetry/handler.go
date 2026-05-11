@@ -19,7 +19,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/grafana/grafana-aichat-app/pkg/metrics"
+	"github.com/grafana/cisco-aichat-app/pkg/metrics"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 )
 

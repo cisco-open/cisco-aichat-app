@@ -17,7 +17,7 @@ package context
 import (
 	"testing"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 func TestNewSlidingWindow(t *testing.T) {

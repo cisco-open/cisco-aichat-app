@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "app",
   "name": "AI Chat Assistant",
-  "id": "grafana-aichat-app",
+  "id": "cisco-aichat-app",
   "info": {
     "keywords": [
       "ai",
@@ -50,6 +50,6 @@
       }
     ]
   },
-  "executable": "gpx_grafana-aichat-app",
+  "executable": "gpx_cisco-aichat-app",
   "backend": true
 }

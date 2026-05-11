@@ -2,7 +2,7 @@
 
 Backend REST API for the Grafana AI Chat Assistant plugin.
 
-**Base URL:** `/api/plugins/grafana-aichat-app/resources`
+**Base URL:** `/api/plugins/cisco-aichat-app/resources`
 
 ## Endpoints
 

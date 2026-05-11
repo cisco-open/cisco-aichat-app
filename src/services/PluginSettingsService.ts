@@ -39,7 +39,7 @@ export class PluginSettingsService {
     }
 
     try {
-      const response = await getBackendSrv().get('/api/plugins/grafana-aichat-app/resources/settings');
+      const response = await getBackendSrv().get('/api/plugins/cisco-aichat-app/resources/settings');
 
       const settings: ProvisionedSettings = {
         systemPrompt: response.systemPrompt,

@@ -41,7 +41,7 @@ The Grafana AI Chat App is a Grafana application plugin that provides an interac
 
    ```bash
    git clone <repository-url>
-   cd grafana-aichat-app
+   cd cisco-aichat-app
    ```
 
 2. **Install dependencies**
@@ -106,7 +106,7 @@ The AI Chat app requires Grafana's LLM service to be configured:
 ## Project Structure
 
 ```
-grafana-aichat-app/
+cisco-aichat-app/
 ├── src/                          # Frontend TypeScript/React code
 │   ├── components/               # React components
 │   │   ├── ChatSidebar.tsx       # Chat session sidebar

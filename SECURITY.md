@@ -40,6 +40,16 @@ for additional information or guidance.
 
 ## Vulnerability management
 
+### Automated scanning
+
+This project uses the following automated security tools:
+
+- **Dependabot**: Grouped weekly dependency updates with security alerts for npm, Go modules, and GitHub Actions
+- **CodeQL**: Static analysis for Go, JavaScript/TypeScript, and GitHub Actions (default setup)
+- **GitHub Secret Scanning**: Push protection enabled to prevent accidental credential commits
+
+### Disclosure handling
+
 When the maintainers receive a disclosure report, they will assign it to a
 primary handler.
 

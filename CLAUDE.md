@@ -86,6 +86,14 @@ Frontend calls backend via Grafana's plugin proxy (`/api/plugins/cisco-aichat-ap
 - **Release** (`.github/workflows/release.yml`): Triggered by `v*` tags, builds and creates GitHub release
 - **Dependabot**: Weekly grouped updates (npm, gomod, github-actions) with 14-day cooldown
 
+## Documentation
+
+When making changes, update the relevant docs in the same PR:
+- `CHANGELOG.md` — new features, fixes, and maintenance (grouped under the next version heading)
+- `README.md` — user-facing feature descriptions, configuration, and architecture
+- `SECURITY.md` — security tooling or vulnerability process changes
+- `docs/API.md` — backend endpoint additions or modifications
+
 ## Environment Variables
 
 The backend reads LLM configuration from Grafana's secure JSON data (plugin settings), not from env vars directly. Storage config uses:

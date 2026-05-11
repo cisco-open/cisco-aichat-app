@@ -16,7 +16,7 @@ updates:
     ignore: []
     commit-message:
       prefix: "deps"
-    minimum-release-age: 7
+    minimum-version-age: 7
 
   - package-ecosystem: "gomod"
     directory: "/"
@@ -31,7 +31,7 @@ updates:
     ignore: []
     commit-message:
       prefix: "deps"
-    minimum-release-age: 7
+    minimum-version-age: 7
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -45,4 +45,4 @@ updates:
           - "*"
     commit-message:
       prefix: "deps"
-    minimum-release-age: 7
+    minimum-version-age: 7

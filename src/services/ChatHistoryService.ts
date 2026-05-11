@@ -95,7 +95,7 @@ export class ChatHistoryService {
       }
     }
 
-    const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const sessionId = `session_${Date.now()}_${crypto.randomUUID().replace(/-/g, '').slice(0, 9)}`;
     const newSession: ChatSession = {
       id: sessionId,
       name: name || `Chat ${userHistory.sessions.length + 1}`,

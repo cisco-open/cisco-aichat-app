@@ -96,7 +96,7 @@ func NewDBStorage(dbURL string, logger log.Logger) (*DBStorage, error) {
 	// Detect database type from URL
 	dbType, driverName, connStr := parseDBURL(dbURL)
 	if dbType == "" {
-		return nil, fmt.Errorf("unsupported database URL format: %s", dbURL)
+		return nil, fmt.Errorf("unsupported database URL format")
 	}
 
 	logger.Info("Initializing database storage", "dbType", dbType)

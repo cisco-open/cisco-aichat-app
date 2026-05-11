@@ -85,7 +85,7 @@ describe('MCPIntegrationService', () => {
       expect(available).toBe(true);
       expect(mockFetch).toHaveBeenCalledWith(
         expect.objectContaining({
-          url: '/api/plugins/grafana-mcpclient-app/resources/ping',
+          url: '/api/plugins/cisco-mcpclient-app/resources/ping',
           method: 'GET',
         })
       );
@@ -252,7 +252,7 @@ describe('MCPIntegrationService', () => {
       expect(result.is_error).toBe(false);
       expect(mockFetch).toHaveBeenCalledWith(
         expect.objectContaining({
-          url: '/api/plugins/grafana-mcpclient-app/resources/tools/call',
+          url: '/api/plugins/cisco-mcpclient-app/resources/tools/call',
           method: 'POST',
           data: expect.objectContaining({
             tool_name: 'search',

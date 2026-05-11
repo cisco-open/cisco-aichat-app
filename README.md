@@ -21,7 +21,7 @@ An intelligent chat interface for Grafana that leverages Large Language Models (
   - Support for multiple MCP servers
   - Ability to cancel long-running tool operations
 - **Multi-Session Management**: Create, switch, rename, and delete chat sessions
-- **Backend Persistence**: File-based storage with per-user isolation and configurable limits
+- **Backend Persistence**: Database (PostgreSQL, SQLite) or file-based storage with per-user isolation and configurable limits
 - **Rich Message Display**: Markdown rendering with syntax-highlighted code blocks
 - **Configurable Settings**: System prompts, session limits, and MCP toggle
 
@@ -148,7 +148,7 @@ See [MULTIPLATFORM-BUILD.md](./MULTIPLATFORM-BUILD.md) for multi-platform option
 ### Backend Features
 
 - Session lifecycle API (CRUD operations)
-- File-based storage with per-user isolation
+- Storage: PostgreSQL, SQLite, file-based, or in-memory (auto-detected from environment)
 - Rate limiting (10 req/sec, burst 20)
 - Input validation and XSS protection
 - Health check endpoints

@@ -11,6 +11,8 @@ updates:
       all-npm:
         patterns:
           - "*"
+    cooldown:
+      default-days: 14
     commit-message:
       prefix: "deps"
 
@@ -24,6 +26,8 @@ updates:
       all-go:
         patterns:
           - "*"
+    cooldown:
+      default-days: 14
     commit-message:
       prefix: "deps"
 
@@ -37,5 +41,7 @@ updates:
       all-actions:
         patterns:
           - "*"
+    cooldown:
+      default-days: 14
     commit-message:
       prefix: "deps"

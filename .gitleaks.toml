@@ -1,0 +1,43 @@
+# Gitleaks configuration for cisco-aichat-app
+# Source: https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml
+
+[extend]
+useDefault = true
+
+# Grafana-specific rules
+
+[[rules]]
+id = "grafana-service-account-token"
+description = "Grafana service account token"
+regex = '''(?i)\b(glsa_[A-Za-z0-9]{32}_[A-Fa-f0-9]{8})(?:['"\s;]|\\[nr]|$)'''
+entropy = 3
+keywords = ["glsa_"]
+
+[[rules]]
+id = "grafana-cloud-api-token"
+description = "Grafana Cloud API token"
+regex = '''(?i)\b(glc_[A-Za-z0-9+/]{32,400}={0,3})(?:['"\s;]|\\[nr]|$)'''
+entropy = 3
+keywords = ["glc_"]
+
+[[rules]]
+id = "grafana-api-key"
+description = "Grafana API key (legacy base64)"
+regex = '''(?i)\b(eyJrIjoi[A-Za-z0-9]{70,400}={0,3})(?:['"\s;]|\\[nr]|$)'''
+entropy = 3
+keywords = ["eyjrijoi"]
+
+[[rules]]
+id = "azure-openai-api-key"
+description = "Azure OpenAI API key"
+regex = '''(?i)(?:azure|openai)[_-]?(?:api[_-]?)?key['":\s=]+['"]?([a-f0-9]{32})['"]?'''
+keywords = ["azure", "openai", "api_key"]
+
+[allowlist]
+paths = [
+    '''.*_test\.go$''',
+    '''.*\.test\.ts$''',
+    '''.*fixtures/.*''',
+    '''.*mocks/.*''',
+    '''.*\.example$''',
+]

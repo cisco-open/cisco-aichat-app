@@ -11,12 +11,8 @@ updates:
       all-npm:
         patterns:
           - "*"
-    milestone: null
-    registries: "*"
-    ignore: []
     commit-message:
       prefix: "deps"
-    minimum-version-age: 7
 
   - package-ecosystem: "gomod"
     directory: "/"
@@ -28,10 +24,8 @@ updates:
       all-go:
         patterns:
           - "*"
-    ignore: []
     commit-message:
       prefix: "deps"
-    minimum-version-age: 7
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -45,4 +39,3 @@ updates:
           - "*"
     commit-message:
       prefix: "deps"
-    minimum-version-age: 7

@@ -1,0 +1,48 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+    open-pull-requests-limit: 3
+    groups:
+      all-npm:
+        patterns:
+          - "*"
+    milestone: null
+    registries: "*"
+    ignore: []
+    commit-message:
+      prefix: "deps"
+    minimum-release-age: 7
+
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+    open-pull-requests-limit: 3
+    groups:
+      all-go:
+        patterns:
+          - "*"
+    ignore: []
+    commit-message:
+      prefix: "deps"
+    minimum-release-age: 7
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+    open-pull-requests-limit: 3
+    groups:
+      all-actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "deps"
+    minimum-release-age: 7

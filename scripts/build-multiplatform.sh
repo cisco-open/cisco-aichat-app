@@ -20,11 +20,11 @@ set -e
 echo "🚀 Building Grafana AI Chat App for Multiple Platforms..."
 
 # Configuration
-PLUGIN_NAME="grafana-aichat-app"
+PLUGIN_NAME="cisco-aichat-app"
 VERSION=${VERSION:-"1.0.0"}
 BUILD_DIR="dist"
 PACKAGE_DIR="package"
-BINARY_NAME="gpx_grafana-aichat-app"
+BINARY_NAME="gpx_cisco-aichat-app"
 
 # Platform matrix - matches production deployment targets
 declare -a PLATFORMS=(
@@ -155,16 +155,16 @@ Grafana will automatically select the correct binary for your platform.
 1. Extract this archive to your Grafana plugins directory:
    ```bash
    # For standard Grafana installation
-   unzip grafana-aichat-app-1.0.0.zip -d /var/lib/grafana/plugins/
+   unzip cisco-aichat-app-1.0.0.zip -d /var/lib/grafana/plugins/
 
    # For Docker/container installations
-   unzip grafana-aichat-app-1.0.0.zip -d /var/lib/grafana/plugins/
+   unzip cisco-aichat-app-1.0.0.zip -d /var/lib/grafana/plugins/
    ```
 
 2. Configure unsigned plugin in grafana.ini:
    ```ini
    [plugins]
-   allow_loading_unsigned_plugins = grafana-aichat-app
+   allow_loading_unsigned_plugins = cisco-aichat-app
    ```
 
 3. Configure LLM provider in Apps → LLM App
@@ -180,7 +180,7 @@ This plugin includes a Go backend that provides:
 - Input validation and XSS protection
 - Rate limiting and authentication
 
-Backend binary: `gpx_grafana-aichat-app`
+Backend binary: `gpx_cisco-aichat-app`
 
 ## Requirements
 

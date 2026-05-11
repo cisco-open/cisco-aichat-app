@@ -15,7 +15,7 @@
 package context
 
 import (
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 // ContextWindow represents a ready-to-send LLM context

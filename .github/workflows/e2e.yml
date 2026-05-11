@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Build backend
-        run: go build -o dist/gpx_grafana-aichat-app_linux_amd64 ./pkg
+        run: go build -o dist/gpx_cisco-aichat-app_linux_amd64 ./pkg
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
@@ -43,16 +43,16 @@ jobs:
       - name: Debug plugin directory
         run: |
           echo "=== Plugin directory listing ==="
-          docker exec grafana-aichat-ci ls -la /var/lib/grafana/plugins/grafana-aichat-app/
+          docker exec grafana-aichat-ci ls -la /var/lib/grafana/plugins/cisco-aichat-app/
           echo ""
           echo "=== plugin.json ==="
-          docker exec grafana-aichat-ci cat /var/lib/grafana/plugins/grafana-aichat-app/plugin.json | head -30
+          docker exec grafana-aichat-ci cat /var/lib/grafana/plugins/cisco-aichat-app/plugin.json | head -30
           echo ""
           echo "=== Binary file check ==="
-          docker exec grafana-aichat-ci file /var/lib/grafana/plugins/grafana-aichat-app/gpx_grafana-aichat-app_linux_amd64 || echo "Binary not found!"
+          docker exec grafana-aichat-ci file /var/lib/grafana/plugins/cisco-aichat-app/gpx_cisco-aichat-app_linux_amd64 || echo "Binary not found!"
           echo ""
           echo "=== Plugin API status ==="
-          curl -sf http://localhost:3000/api/plugins/grafana-aichat-app/settings | python3 -m json.tool || echo "API call failed"
+          curl -sf http://localhost:3000/api/plugins/cisco-aichat-app/settings | python3 -m json.tool || echo "API call failed"
 
       - name: Grafana logs
         if: always()

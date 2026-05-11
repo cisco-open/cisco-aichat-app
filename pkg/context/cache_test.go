@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 func TestContextCache_GetSet(t *testing.T) {

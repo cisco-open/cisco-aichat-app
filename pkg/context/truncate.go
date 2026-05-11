@@ -19,8 +19,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
-	"github.com/grafana/grafana-aichat-app/pkg/tokens"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/tokens"
 )
 
 // TruncationMarker is appended to truncated content

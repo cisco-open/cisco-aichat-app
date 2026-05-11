@@ -42,7 +42,7 @@ An intelligent chat interface for Grafana that leverages Large Language Models (
 Installation via grafana-cli will be available once published to the Grafana plugin catalog.
 
 ```bash
-grafana-cli plugins install grafana-aichat-app
+grafana-cli plugins install cisco-aichat-app
 ```
 
 ### Manual Installation
@@ -57,10 +57,10 @@ Mount the plugin directory and configure in your deployment:
 
 ```yaml
 volumes:
-  - ./plugins/grafana-aichat-app:/var/lib/grafana/plugins/grafana-aichat-app
+  - ./plugins/cisco-aichat-app:/var/lib/grafana/plugins/cisco-aichat-app
 
 environment:
-  - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=grafana-aichat-app
+  - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=cisco-aichat-app
 ```
 
 ### Building from Source
@@ -71,7 +71,7 @@ environment:
 
 ```bash
 git clone <repository-url>
-cd grafana-aichat-app
+cd cisco-aichat-app
 npm install
 npm run build
 ./scripts/build.sh
@@ -130,10 +130,10 @@ npm run lint
 
 ```bash
 # Build for current platform
-go build -o dist/gpx_grafana-aichat-app ./pkg
+go build -o dist/gpx_cisco-aichat-app ./pkg
 
 # Build for Linux/ARM64 (containers)
-GOOS=linux GOARCH=arm64 go build -o dist/gpx_grafana-aichat-app ./pkg
+GOOS=linux GOARCH=arm64 go build -o dist/gpx_cisco-aichat-app ./pkg
 ```
 
 See [MULTIPLATFORM-BUILD.md](./MULTIPLATFORM-BUILD.md) for multi-platform options.

@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 // mockMessageFetcher implements MessageFetcher for testing

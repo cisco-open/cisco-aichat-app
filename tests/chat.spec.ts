@@ -102,7 +102,7 @@ test.describe('Chat page', () => {
 
   test('should verify plugin is enabled via API', async ({ gotoPage, page }) => {
     // Use the Grafana API to confirm the plugin is loaded and enabled
-    const response = await page.request.get('/api/plugins/grafana-aichat-app/settings');
+    const response = await page.request.get('/api/plugins/cisco-aichat-app/settings');
     expect(response.status()).toBe(200);
 
     const body = await response.json();

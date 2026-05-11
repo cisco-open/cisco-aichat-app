@@ -58,9 +58,9 @@ describe('Components/App', () => {
     jest.clearAllMocks();
 
     props = {
-      basename: 'a/grafana-aichat-app',
+      basename: 'a/cisco-aichat-app',
       meta: {
-        id: 'grafana-aichat-app',
+        id: 'cisco-aichat-app',
         name: 'AI Chat Assistant',
         type: PluginType.app,
         enabled: true,

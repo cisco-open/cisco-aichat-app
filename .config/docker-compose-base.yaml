@@ -17,7 +17,7 @@
 services:
   grafana:
     user: root
-    container_name: 'grafana-aichat-app'
+    container_name: 'cisco-aichat-app'
 
     build:
       context: .
@@ -29,13 +29,13 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - ../dist:/var/lib/grafana/plugins/grafana-aichat-app
+      - ../dist:/var/lib/grafana/plugins/cisco-aichat-app
       - ../provisioning:/etc/grafana/provisioning
-      - ..:/root/grafana-aichat-app
+      - ..:/root/cisco-aichat-app
 
     environment:
       NODE_ENV: development
-      GF_LOG_FILTERS: plugin.grafana-aichat-app:debug
+      GF_LOG_FILTERS: plugin.cisco-aichat-app:debug
       GF_LOG_LEVEL: debug
       GF_DATAPROXY_LOGGING: 1
-      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: grafana-aichat-app
+      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: cisco-aichat-app

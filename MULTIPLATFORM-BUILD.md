@@ -11,7 +11,7 @@ This document explains the build options available for the Grafana AI Chat App p
 This custom build script provides full control over the build process and creates binaries for all supported platforms:
 
 ```bash
-cd grafana-aichat-app
+cd cisco-aichat-app
 ./scripts/build-multiplatform.sh
 ```
 
@@ -38,20 +38,20 @@ cd grafana-aichat-app
 **Output:**
 ```
 dist/
-├── gpx_grafana-aichat-app_darwin_amd64
-├── gpx_grafana-aichat-app_darwin_arm64
-├── gpx_grafana-aichat-app_linux_amd64
-├── gpx_grafana-aichat-app_linux_arm
-├── gpx_grafana-aichat-app_linux_arm64
-├── gpx_grafana-aichat-app_windows_amd64.exe
+├── gpx_cisco-aichat-app_darwin_amd64
+├── gpx_cisco-aichat-app_darwin_arm64
+├── gpx_cisco-aichat-app_linux_amd64
+├── gpx_cisco-aichat-app_linux_arm
+├── gpx_cisco-aichat-app_linux_arm64
+├── gpx_cisco-aichat-app_windows_amd64.exe
 ├── go_plugin_build_manifest
 ├── module.js (and other frontend assets)
 └── plugin.json
 
-package/grafana-aichat-app/
+package/cisco-aichat-app/
 └── (all dist files + README.md, CHANGELOG.md, LICENSE)
 
-grafana-aichat-app-1.0.0.zip
+cisco-aichat-app-1.0.0.zip
 ```
 
 ### Option 2: Grafana Mage Build System (Official Grafana Pattern)
@@ -61,7 +61,7 @@ grafana-aichat-app-1.0.0.zip
 The plugin includes `Magefile.go` which imports Grafana's standard build system from `grafana-plugin-sdk-go`:
 
 ```bash
-cd grafana-aichat-app
+cd cisco-aichat-app
 
 # Install Mage (if not already installed)
 go install github.com/magefile/mage@latest
@@ -100,7 +100,7 @@ mage package
 Updated to include backend compilation and create distribution packages:
 
 ```bash
-cd grafana-aichat-app
+cd cisco-aichat-app
 ./scripts/package.sh
 ```
 
@@ -131,7 +131,7 @@ cd grafana-ai
 
 **Backend binary compilation:**
 ```bash
-GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o dist/gpx_grafana-aichat-app -ldflags="-w -s" ./pkg
+GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o dist/gpx_cisco-aichat-app -ldflags="-w -s" ./pkg
 ```
 
 **Important:** This only builds the Linux ARM64 binary needed for the local container environment. For full distribution, use Option 1 or 2.
@@ -161,7 +161,7 @@ cd grafana-ai
 ### For Testing Multi-Platform Support
 ```bash
 # Use manual multi-platform build
-cd grafana-aichat-app
+cd cisco-aichat-app
 ./scripts/build-multiplatform.sh
 # Test binaries on different platforms
 ```
@@ -169,12 +169,12 @@ cd grafana-aichat-app
 ### For Production Release
 ```bash
 # Option A: Use Mage (recommended for plugin registry)
-cd grafana-aichat-app
+cd cisco-aichat-app
 mage build:all
 mage package
 
 # Option B: Use manual build (more control)
-cd grafana-aichat-app
+cd cisco-aichat-app
 ./scripts/build-multiplatform.sh
 # Sign the plugin if needed
 # Upload to GitHub releases or plugin registry
@@ -182,7 +182,7 @@ cd grafana-aichat-app
 
 ## Backend Binary Details
 
-The Go backend (`gpx_grafana-aichat-app`) provides:
+The Go backend (`gpx_cisco-aichat-app`) provides:
 
 **Features:**
 - Chat session management (create, delete, switch)
@@ -203,7 +203,7 @@ The Go backend (`gpx_grafana-aichat-app`) provides:
 **Build flags:**
 - `CGO_ENABLED=0` - Static linking, no C dependencies
 - `-ldflags="-w -s"` - Strip debug symbols for smaller binaries
-- Platform-specific naming: `gpx_grafana-aichat-app_{os}_{arch}`
+- Platform-specific naming: `gpx_cisco-aichat-app_{os}_{arch}`
 
 ## Plugin.json Backend Configuration
 
@@ -211,7 +211,7 @@ The `src/plugin.json` declares backend support:
 
 ```json
 {
-  "executable": "gpx_grafana-aichat-app",
+  "executable": "gpx_cisco-aichat-app",
   "backend": true
 }
 ```
@@ -224,19 +224,19 @@ After building, verify backend is included:
 
 ```bash
 # Check dist directory has backend binaries
-ls -lh dist/gpx_grafana-aichat-app*
+ls -lh dist/gpx_cisco-aichat-app*
 
 # Check plugin.json declares backend
 grep -A2 "executable" dist/plugin.json
 
 # For container deployment, verify binary exists
-ls -lh grafana-ai/grafana/plugins/grafana-aichat-app/gpx_grafana-aichat-app
+ls -lh grafana-ai/grafana/plugins/cisco-aichat-app/gpx_cisco-aichat-app
 ```
 
 ## Troubleshooting
 
 ### Backend binary not found
-- **Symptom:** Grafana logs show "fork/exec gpx_grafana-aichat-app: no such file or directory"
+- **Symptom:** Grafana logs show "fork/exec gpx_cisco-aichat-app: no such file or directory"
 - **Solution:** Run build script that includes Go compilation (not just `npm run build`)
 
 ### Wrong platform binary
@@ -258,7 +258,7 @@ export VERSION="1.0.0"
 ./scripts/build-multiplatform.sh
 
 # Build for specific platform only
-GOOS=linux GOARCH=amd64 go build -o dist/gpx_grafana-aichat-app_linux_amd64 ./pkg
+GOOS=linux GOARCH=amd64 go build -o dist/gpx_cisco-aichat-app_linux_amd64 ./pkg
 ```
 
 ## Further Reading

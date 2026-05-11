@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
 )
 
 // mockStorage implements storage.Storage for testing

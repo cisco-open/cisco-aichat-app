@@ -24,8 +24,8 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/grafana/grafana-aichat-app/pkg/storage"
-	"github.com/grafana/grafana-aichat-app/pkg/telemetry"
+	"github.com/grafana/cisco-aichat-app/pkg/storage"
+	"github.com/grafana/cisco-aichat-app/pkg/telemetry"
 	"github.com/grafana/grafana-plugin-sdk-go/backend"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 )

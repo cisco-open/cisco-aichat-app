@@ -21,11 +21,11 @@ set -e
 echo "📦 Creating Grafana AI Chat App Distribution Package..."
 
 # Configuration
-PLUGIN_NAME="grafana-aichat-app"
+PLUGIN_NAME="cisco-aichat-app"
 VERSION=${VERSION:-"1.0.0"}
 BUILD_DIR="dist"
 PACKAGE_DIR="package"
-BINARY_NAME="gpx_grafana-aichat-app"
+BINARY_NAME="gpx_cisco-aichat-app"
 
 # Platform matrix - Multi-platform support for Go backend
 declare -a PLATFORMS=(
@@ -145,19 +145,19 @@ Grafana will automatically select the correct binary for your platform.
 
 ```bash
 # Install from local zip file using grafana-cli
-grafana-cli --pluginUrl file:///path/to/grafana-aichat-app-1.0.0.zip \
+grafana-cli --pluginUrl file:///path/to/cisco-aichat-app-1.0.0.zip \
             --pluginsDir "/var/lib/grafana/plugins" \
-            plugins install grafana-aichat-app
+            plugins install cisco-aichat-app
 ```
 
 ### Method 2: Direct extraction
 
 ```bash
 # For standard Grafana installation
-unzip grafana-aichat-app-1.0.0.zip -d /var/lib/grafana/plugins/
+unzip cisco-aichat-app-1.0.0.zip -d /var/lib/grafana/plugins/
 
 # For Docker/container deployments
-unzip grafana-aichat-app-1.0.0.zip -d ./grafana/plugins/
+unzip cisco-aichat-app-1.0.0.zip -d ./grafana/plugins/
 ```
 
 ### Configuration
@@ -166,7 +166,7 @@ unzip grafana-aichat-app-1.0.0.zip -d ./grafana/plugins/
    ```ini
    # In grafana.ini
    [plugins]
-   allow_loading_unsigned_plugins = grafana-aichat-app
+   allow_loading_unsigned_plugins = cisco-aichat-app
    ```
 
 2. **Restart Grafana**
@@ -199,9 +199,9 @@ This plugin includes a Go backend that provides:
 - Rate limiting and authentication
 - Health check endpoints
 
-Backend binary: `gpx_grafana-aichat-app`
+Backend binary: `gpx_cisco-aichat-app`
 
-For more information, visit: https://github.com/your-org/grafana-aichat-app
+For more information, visit: https://github.com/your-org/cisco-aichat-app
 EOF
 
 # Create version info

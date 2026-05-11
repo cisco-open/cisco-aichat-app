@@ -103,11 +103,11 @@ func (c *AnthropicCounter) mapModel(model string) anthropic.Model {
 
 	// Claude 3.7 Sonnet
 	case strings.Contains(model, "3-7-sonnet") || strings.Contains(model, "3.7-sonnet"):
-		return anthropic.ModelClaude3_7SonnetLatest
+		return "claude-3-7-sonnet-latest"
 
 	// Claude 3.5 Haiku
 	case strings.Contains(model, "3-5-haiku") || strings.Contains(model, "3.5-haiku"):
-		return anthropic.ModelClaude3_5HaikuLatest
+		return "claude-3-5-haiku-latest"
 
 	// Claude Haiku 4.5
 	case strings.Contains(model, "haiku-4-5") || strings.Contains(model, "haiku-4.5"):

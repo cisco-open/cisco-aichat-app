@@ -59,9 +59,8 @@ jobs:
         run: |
           PLUGIN_ID="cisco-aichat-app"
           VERSION="${GITHUB_REF_NAME#v}"
-          cd dist
-          zip -r "../${PLUGIN_ID}-${VERSION}.zip" .
-          cd ..
+          mv dist "$PLUGIN_ID"
+          zip -r "${PLUGIN_ID}-${VERSION}.zip" "$PLUGIN_ID"
           echo "PLUGIN_ARCHIVE=${PLUGIN_ID}-${VERSION}.zip" >> $GITHUB_ENV
           echo "RELEASE_VERSION=${VERSION}" >> $GITHUB_ENV
 

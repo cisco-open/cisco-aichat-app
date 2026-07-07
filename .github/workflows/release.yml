@@ -64,6 +64,9 @@ jobs:
           echo "PLUGIN_ARCHIVE=${PLUGIN_ID}-${VERSION}.zip" >> $GITHUB_ENV
           echo "RELEASE_VERSION=${VERSION}" >> $GITHUB_ENV
 
+      - name: Verify zip structure
+        run: unzip -l "$PLUGIN_ARCHIVE" | grep -q "cisco-aichat-app/plugin.json"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:

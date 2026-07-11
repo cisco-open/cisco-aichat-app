@@ -3,7 +3,7 @@ module github.com/grafana/cisco-aichat-app
 go 1.26.3
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.47.0
+	github.com/anthropics/anthropic-sdk-go v1.52.0
 	github.com/dgraph-io/ristretto/v2 v2.4.0
 	github.com/golang-migrate/migrate/v4 v4.19.1
 	github.com/google/uuid v1.6.0
@@ -15,7 +15,7 @@ require (
 	github.com/tiktoken-go/tokenizer v0.8.0
 	golang.org/x/sync v0.21.0
 	golang.org/x/time v0.15.0
-	modernc.org/sqlite v1.51.0
+	modernc.org/sqlite v1.53.0
 )
 
 require (
@@ -116,7 +116,7 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/fsnotify/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	modernc.org/libc v1.72.3 // indirect
+	modernc.org/libc v1.73.4 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )

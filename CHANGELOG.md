@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Fixes
+
+- Fixed "Plugin failed to load: Cannot read properties of undefined (reading 'ReactCurrentOwner')" on Grafana hosts running React 19, by externalizing `react/jsx-runtime` and `react/jsx-dev-runtime` in the webpack config so bundled dependencies that use the automatic JSX runtime resolve against the host's React instance instead of a duplicate bundled copy
+
 ## 1.1.0 (2026-05-11)
 
 ### Security

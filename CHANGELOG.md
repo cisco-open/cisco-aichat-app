@@ -5,6 +5,7 @@
 ### Fixes
 
 - Fixed "Plugin failed to load: Cannot read properties of undefined (reading 'ReactCurrentOwner')" on Grafana hosts running React 19, by externalizing `react/jsx-runtime` and `react/jsx-dev-runtime` in the webpack config so bundled dependencies that use the automatic JSX runtime resolve against the host's React instance instead of a duplicate bundled copy
+  - **Breaking**: this raises the minimum supported Grafana version to `>=11.6.11 <12 || >=12.0.10 <12.1 || >=12.1.7 <12.2 || >=12.2.5` (updated in `plugin.json`), since older Grafana versions don't expose `react/jsx-runtime` for plugins to resolve against
 
 ## 1.1.0 (2026-05-11)
 

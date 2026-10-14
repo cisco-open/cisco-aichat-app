@@ -93,13 +93,13 @@ func (c *AnthropicCounter) mapModel(model string) anthropic.Model {
 	case strings.Contains(model, "opus-4-5") || strings.Contains(model, "opus-4.5"):
 		return anthropic.ModelClaudeOpus4_5
 	case strings.Contains(model, "opus-4") || strings.Contains(model, "opus-4.0"):
-		return anthropic.ModelClaudeOpus4_0
+		return "claude-opus-4-0"
 
 	// Claude Sonnet 4.5
 	case strings.Contains(model, "sonnet-4-5") || strings.Contains(model, "sonnet-4.5"):
 		return anthropic.ModelClaudeSonnet4_5
 	case strings.Contains(model, "sonnet-4") || strings.Contains(model, "sonnet-4.0"):
-		return anthropic.ModelClaudeSonnet4_0
+		return "claude-sonnet-4-0"
 
 	// Claude 3.7 Sonnet
 	case strings.Contains(model, "3-7-sonnet") || strings.Contains(model, "3.7-sonnet"):
